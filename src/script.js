@@ -53,8 +53,7 @@ let controls = null
 /**
  * Model
  */
-gltfLoader.load (
-    'TechStack2-BAKING-.glb',
+gltfLoader.load ('TechStack2-BAKING-.glb',
     (gltf) => {
         gltf.scene.traverse((child) => {
             child.material = bakedMaterial
@@ -66,7 +65,15 @@ gltfLoader.load (
         scene.add(gltf.scene)
         console.log(gltf)
 
-    //     mixer = new THREE.AnimationMixer(gltf.scene)
+        mixer = new THREE.AnimationMixer(gltf.scene)
+        const csr = mixer.clipAction(gltf.animations[0])
+        const desktop = mixer.clipAction(gltf.animations[1])
+        const phone = mixer.clipAction(gltf.animations[2])
+
+        csr.play()
+        desktop.play()
+        phone.play()
+
     //     const sedan = mixer.clipAction(gltf.animations[73])
     //     const smallBus = mixer.clipAction(gltf.animations[70])
     //     const bigBus = mixer.clipAction(gltf.animations[67])
@@ -141,7 +148,7 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(100, 1, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
 camera.position.x = 2.67
 camera.position.y = 0.22
 camera.position.z = -0.54
