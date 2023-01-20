@@ -54,7 +54,7 @@ let controls = null
  * Model
  */
 gltfLoader.load (
-    'Transit3JS.glb',
+    'TechStack2-BAKING-.glb',
     (gltf) => {
         gltf.scene.traverse((child) => {
             child.material = bakedMaterial
@@ -64,32 +64,32 @@ gltfLoader.load (
         gltf.scene.position.setZ(0)
 
         scene.add(gltf.scene)
-        // console.log(gltf)
+        console.log(gltf)
 
-        mixer = new THREE.AnimationMixer(gltf.scene)
-        const sedan = mixer.clipAction(gltf.animations[73])
-        const smallBus = mixer.clipAction(gltf.animations[70])
-        const bigBus = mixer.clipAction(gltf.animations[67])
-        const cloudOne = mixer.clipAction(gltf.animations[0])
-        const cloudTwo = mixer.clipAction(gltf.animations[1])
-        const cloudThree = mixer.clipAction(gltf.animations[2])
-        const bird1 = mixer.clipAction(gltf.animations[3])
-        const bird2 = mixer.clipAction(gltf.animations[4])
-        const bird3 = mixer.clipAction(gltf.animations[5])
-        const bird4 = mixer.clipAction(gltf.animations[6])
-        const gpsRing = mixer.clipAction(gltf.animations[63])
+    //     mixer = new THREE.AnimationMixer(gltf.scene)
+    //     const sedan = mixer.clipAction(gltf.animations[73])
+    //     const smallBus = mixer.clipAction(gltf.animations[70])
+    //     const bigBus = mixer.clipAction(gltf.animations[67])
+    //     const cloudOne = mixer.clipAction(gltf.animations[0])
+    //     const cloudTwo = mixer.clipAction(gltf.animations[1])
+    //     const cloudThree = mixer.clipAction(gltf.animations[2])
+    //     const bird1 = mixer.clipAction(gltf.animations[3])
+    //     const bird2 = mixer.clipAction(gltf.animations[4])
+    //     const bird3 = mixer.clipAction(gltf.animations[5])
+    //     const bird4 = mixer.clipAction(gltf.animations[6])
+    //     const gpsRing = mixer.clipAction(gltf.animations[63])
 
-       sedan.play()
-       smallBus.play()
-       bigBus.play()
-       cloudOne.play()
-       cloudTwo.play()
-       cloudThree.play()
-       bird1.play()
-       bird2.play()
-       bird3.play()
-       bird4.play()
-       gpsRing.play()
+    //    sedan.play()
+    //    smallBus.play()
+    //    bigBus.play()
+    //    cloudOne.play()
+    //    cloudTwo.play()
+    //    cloudThree.play()
+    //    bird1.play()
+    //    bird2.play()
+    //    bird3.play()
+    //    bird4.play()
+    //    gpsRing.play()
 
     }
 )
