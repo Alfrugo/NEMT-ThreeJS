@@ -148,25 +148,40 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
-camera.position.x = 2.67
-camera.position.y = 0.22
-camera.position.z = -0.54
-camera.lookAt (new THREE.Vector3(200,100,1000));
+const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100)
+
+
+camera.position.set(20,0,0)
+
+// camera lookAt the .csr object
+
+
+
+
+
+// camera.lookAt (new THREE.Vector3(100,1000,100000));
+// camera.rotateX(20)
 scene.add(camera)
 
 // Controls
 controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
+controls.target.set(0,0,0.6);  // when using orbit controls, this CONTROSLS THE POSITION OF THE CAMERA is is the position of the camera when the page loads
+controls.update();
+ 
 controls.screenSpacePanning = false
-// controls.minAzimuthAngle = 1
-controls.maxAzimuthAngle = Math.PI / 2
+controls.minAzimuthAngle = 1.66  // **** IMPORTANT this controls the rotation of the camera on horizontal axis when both min and max are the same, there's no movement possible. 
+controls.maxAzimuthAngle = 1.66  
+// controls.maxAzimuthAngle = Math.PI / 2
+
 controls.maxPolarAngle = Math.PI / 2
-controls.maxDistance = 4
-controls.minDistance = 2
-// var gridXZ = new THREE.GridHelper(10, 1);
-//     scene.add(gridXZ);
+controls.minPolarAngle = Math.PI / 3
+
+controls.maxDistance = 3
+controls.minDistance = 1
+var gridXZ = new THREE.GridHelper(10, 1);
+    scene.add(gridXZ);
 
 /**
  * Renderer
@@ -198,7 +213,9 @@ const tick = () =>
     previousTime = elapsedTime
 
     // Update controls
+    
     controls.update()
+
     // console.log (camera.position.x,
     //     camera.position.y,
     //     camera.position.z)
