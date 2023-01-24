@@ -66,7 +66,7 @@ gltfLoader.load ('TechStack2-BAKING-.glb',
         console.log(gltf)
 
         mixer = new THREE.AnimationMixer(gltf.scene)
-        const csr = mixer.clipAction(gltf.animations[0])
+        const csr = mixer.clipAction(gltf.animations[0])   // this is the animation clip from Blender from the animations tab there's an array [ ] of animations. 
         const desktop = mixer.clipAction(gltf.animations[1])
         const phone = mixer.clipAction(gltf.animations[2])
 
@@ -74,30 +74,7 @@ gltfLoader.load ('TechStack2-BAKING-.glb',
         desktop.play()
         phone.play()
 
-    //     const sedan = mixer.clipAction(gltf.animations[73])
-    //     const smallBus = mixer.clipAction(gltf.animations[70])
-    //     const bigBus = mixer.clipAction(gltf.animations[67])
-    //     const cloudOne = mixer.clipAction(gltf.animations[0])
-    //     const cloudTwo = mixer.clipAction(gltf.animations[1])
-    //     const cloudThree = mixer.clipAction(gltf.animations[2])
-    //     const bird1 = mixer.clipAction(gltf.animations[3])
-    //     const bird2 = mixer.clipAction(gltf.animations[4])
-    //     const bird3 = mixer.clipAction(gltf.animations[5])
-    //     const bird4 = mixer.clipAction(gltf.animations[6])
-    //     const gpsRing = mixer.clipAction(gltf.animations[63])
-
-    //    sedan.play()
-    //    smallBus.play()
-    //    bigBus.play()
-    //    cloudOne.play()
-    //    cloudTwo.play()
-    //    cloudThree.play()
-    //    bird1.play()
-    //    bird2.play()
-    //    bird3.play()
-    //    bird4.play()
-    //    gpsRing.play()
-
+    
     }
 )
 
@@ -153,14 +130,7 @@ const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100)
 
 camera.position.set(20,0,0)
 
-// camera lookAt the .csr object
 
-
-
-
-
-// camera.lookAt (new THREE.Vector3(100,1000,100000));
-// camera.rotateX(20)
 scene.add(camera)
 
 // Controls
@@ -216,9 +186,7 @@ const tick = () =>
     
     controls.update()
 
-    // console.log (camera.position.x,
-    //     camera.position.y,
-    //     camera.position.z)
+   
 
     if (mixer !== null){
         mixer.update(deltaTime)
