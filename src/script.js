@@ -15,7 +15,7 @@ const canvas = document.querySelector('canvas.webgl')
 // const canvasHeight = document.getElementById('canvas2').clientHeight
 
 const canvasWidth = 600 
-const canvasHeight = 600
+const canvasHeight = 400
 
 
 
@@ -34,6 +34,7 @@ const textureLoader = new THREE.TextureLoader()
 // Draco loader
 const dracoLoader = new DRACOLoader()
 dracoLoader.setDecoderPath('draco/')
+
 
 // GLTF loader
 const gltfLoader = new GLTFLoader()
@@ -115,7 +116,7 @@ window.addEventListener('resize', () =>
 
     // Update renderer
     // renderer.setSize(sizes.width, sizes.height)
-    renderer.setSize(600, 600)
+    renderer.setSize(600    , 400)
 
 })
 
@@ -125,10 +126,10 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(26, 1.5, 0.1, 100)
 
 
-camera.position.set(20,0,0)
+camera.position.set(2,0,0)
 
 
 scene.add(camera)
@@ -137,21 +138,21 @@ scene.add(camera)
 controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
-controls.target.set(0,0,0.6);  // when using orbit controls, this CONTROSLS THE POSITION OF THE CAMERA is is the position of the camera when the page loads
+controls.target.set(3,0.1,0.6);  // when using orbit controls, this CONTROSLS THE POSITION OF THE CAMERA is is the position of the camera when the page loads
 controls.update();
  
 controls.screenSpacePanning = false
-controls.minAzimuthAngle = 1.66  // **** IMPORTANT this controls the rotation of the camera on horizontal axis when both min and max are the same, there's no movement possible. 
-controls.maxAzimuthAngle = 1.66  
+controls.minAzimuthAngle = 1.56 // **** IMPORTANT this controls the rotation of the camera on horizontal axis when both min and max are the same, there's no movement possible. 
+controls.maxAzimuthAngle = 1.56  
 // controls.maxAzimuthAngle = Math.PI / 2
 
-controls.maxPolarAngle = Math.PI / 2
-controls.minPolarAngle = Math.PI / 3
+controls.maxPolarAngle = Math.PI / 2.45
+controls.minPolarAngle = Math.PI / 2.55
 
 controls.maxDistance = 3
 controls.minDistance = 1
-var gridXZ = new THREE.GridHelper(10, 1);
-    scene.add(gridXZ);
+// var gridXZ = new THREE.GridHelper(10, 1);
+//     scene.add(gridXZ);
 
 /**
  * Renderer
@@ -162,8 +163,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 
 scene.background = new THREE.Color(0xffffff)
-renderer.setSize(sizes.width, sizes.height)
-
+renderer.setSize(600, 400)
 // if (sizes.width <= 800) {
 //     renderer.setSize(sizes.width * 0.5, sizes.height*0.5)
 // }
