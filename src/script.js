@@ -45,7 +45,7 @@ let controls = null
 /**
  * Material
  */
- const bakedTexture = textureLoader.load('baked.jpg')
+ const bakedTexture = textureLoader.load('BakedNEMT.jpg')
  bakedTexture.flipY = false
 
  const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
